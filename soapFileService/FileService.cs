@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -15,9 +16,16 @@ namespace soapFileService
             FileListSingleton.FileList.Add(FileName);
         }
 
-        public void SearchFileList()
+        public string SearchFileList(string searchValue)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Søger på: "+searchValue);
+            foreach (var File in FileListSingleton.FileList)
+            {
+                Console.WriteLine(File);
+            }
+            Console.WriteLine("Søgning Færdig");
+            return "SearchComplete";
         }
+
     }
 }
